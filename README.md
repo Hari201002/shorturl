@@ -15,7 +15,7 @@ Mac/Linux:
     
 Navigate to the frontend folder:
 
-    cd urlshorten    
+    cd urlshortener    
 
 
 Install backend dependencies:
@@ -35,7 +35,7 @@ Frontend Setup (Angular)
 
 Navigate to the frontend folder:
 
-    cd url-shorten
+    cd url-shortener
 
 
 Install Node.js dependencies:
