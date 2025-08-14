@@ -35,7 +35,7 @@ Frontend Setup (Angular)
 
 Navigate to the frontend folder:
 
-    cd url-shortener
+    cd url-shortener1
 
 
 Install Node.js dependencies:
