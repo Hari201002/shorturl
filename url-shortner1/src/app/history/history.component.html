@@ -1,0 +1,13 @@
+<h2>URL History</h2>
+<table>
+  <tr>
+    <th>Short URL</th>
+    <th>Original URL</th>
+    <th>Created At</th>
+  </tr>
+  <tr *ngFor="let item of history">
+    <td><a [href]="item.short_url" target="_blank">{{ item.short_url }}</a></td>
+    <td>{{ item.original_url }}</td>
+    <td>{{ item.created_at }}</td>
+  </tr>
+</table>
