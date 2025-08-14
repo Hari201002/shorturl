@@ -1,0 +1,55 @@
+
+<div class="shortener-wrapper">
+  <h1 class="title">🔗 URL Shortener</h1>
+
+  <!-- URL Form -->
+  <form [formGroup]="form" (ngSubmit)="submit()" class="shortener-form">
+    <input
+      type="url"
+      formControlName="url"
+      placeholder="Paste your long URL here..."
+      class="url-input"
+    />
+    <button type="submit" [disabled]="loading" class="btn-primary">
+      {{ loading ? 'Shortening...' : 'Shorten URL' }}
+    </button>
+  </form>
+
+  <!-- Error -->
+  <div *ngIf="error" class="alert alert-error">
+    {{ error }}
+  </div>
+
+  <!-- Success -->
+  <div *ngIf="shortUrl" class="alert alert-success">
+    ✅ Short URL:
+    <a [href]="shortUrl" target="_blank">{{ shortUrl }}</a>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- History Table -->
+  <h3 class="section-title">📜 URL History</h3>
+  <table *ngIf="historyList.length > 0; else noHistory" class="history-table">
+    <thead>
+      <tr>
+        <th>Short URL</th>
+        <th>Original URL</th>
+        <th>Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of historyList">
+        <td>
+          <a [href]="item.short_url" target="_blank">{{ item.short_url }}</a>
+        </td>
+        <td class="truncate">{{ item.original_url }}</td>
+        <td>{{ item.created_at | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noHistory>
+    <p class="empty-text">No shortened URLs yet. Try adding one above!</p>
+  </ng-template>
+</div>
